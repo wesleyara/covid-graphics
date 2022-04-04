@@ -1,10 +1,15 @@
 import type { NextPage } from "next";
-import { Chartist } from "../components/Chartist";
+import { Graphics } from "../components/Graphics";
+import { Header } from "../layout/Header";
+import { Container } from "../styles/home/style";
 
 const Home: NextPage = () => {
   return (
     <>
-      <Chartist />
+      <Container>
+        <Header />
+        <Graphics />
+      </Container>
     </>
   );
 };
