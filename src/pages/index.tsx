@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
+import { Chartist } from "../components/Chartist";
 
 const Home: NextPage = () => {
   return (
     <>
-      <h1>Olá mundo</h1>
+      <Chartist />
     </>
   );
 };
