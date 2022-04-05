@@ -1,5 +1,5 @@
 import { Header } from "../../../layout/Header";
-import { Container } from "../../../styles/home/style";
+import { Container, Infos } from "../../../styles/home/style";
 
 import { forecastCovid } from "covid-forecast";
 import Highcharts from "highcharts";
@@ -110,7 +110,7 @@ export default function States() {
     <>
       <Container>
         <Header />
-        <div className="inputContainer">
+        <Infos>
           <h3>{states}</h3>
           <input
             type="text"
@@ -141,7 +141,7 @@ export default function States() {
               <HighchartsReact highcharts={Highcharts} options={options} />
             </GraphicsContainer>
           )}
-        </div>
+        </Infos>
       </Container>
     </>
   );

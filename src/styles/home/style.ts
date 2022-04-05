@@ -9,33 +9,48 @@ export const Container = styled.div`
     max-width: 300px;
     min-width: 251px;
   }
+`;
 
-  .inputContainer {
-    background-image: url(/assets/background.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    flex: 5;
-    text-align: center;
-    padding-top: 30px;
-    max-width: 1100px;
+export const Infos = styled.main`
+  background-image: url(/assets/background.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  flex: 5;
+  text-align: center;
+  padding-top: 30px;
+  max-width: 1100px;
 
-    h3 {
-      margin-bottom: 20px;
-    }
+  h3 {
+    margin-bottom: 20px;
+    color: white;
+  }
 
-    input {
-      padding: 10px;
-      margin-left: 5px;
-    }
+  input {
+    padding: 15px;
+    margin-left: 5px;
+    background-color: white;
+    border: none;
+  }
 
-    button {
-      margin-left: 5px;
-      padding: 10px;
-      background-color: ${(props) => props.theme.colors.background};
-      border: 1px solid ${(props) => props.theme.colors.text};
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  input::placeholder {
+    color: black;
+  }
+
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  button {
+    margin-left: 5px;
+    padding: 15px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
   }
 `;
