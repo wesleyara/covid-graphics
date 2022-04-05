@@ -27,6 +27,7 @@ export function Header() {
 
     fetchData();
   }, []);
+
   return (
     <Container>
       <input type="text" placeholder="Pesquise um estado" />

@@ -22,6 +22,7 @@ export const Container = styled.header`
 
       &:hover {
         background-color: ${(props) => props.theme.colors.hover};
+        color: white;
       }
     }
   }
