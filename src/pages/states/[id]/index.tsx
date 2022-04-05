@@ -3,7 +3,6 @@ import { Container, Infos } from "../../../styles/home/style";
 
 import forecastCovid from "covid-forecast";
 import Highcharts from "highcharts";
-//import { forecastCovid } from "covid-forecast";
 import HighchartsReact from "highcharts-react-official";
 import { useEffect, useState } from "react";
 import { GraphicsContainer } from "../../../components/Graphics/style";
