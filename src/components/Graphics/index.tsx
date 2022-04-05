@@ -25,7 +25,6 @@ export function Graphics() {
   function handleSend() {
     setRend(true);
     setArray(forecastCovid(d, n, x0));
-    console.log(days);
   }
 
   const options = {

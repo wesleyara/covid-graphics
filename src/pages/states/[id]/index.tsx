@@ -66,7 +66,6 @@ export default function States() {
   function handleSend() {
     setRend(true);
     setArray(forecastCovid(d, population, x0));
-    console.log(days);
   }
 
   const options = {
