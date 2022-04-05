@@ -10,6 +10,7 @@ export const Container = styled.header`
 
   input {
     padding: 5px;
+    width: 100%;
   }
 
   ul {

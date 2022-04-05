@@ -28,6 +28,7 @@ export const Infos = styled.main`
     margin-top: 5px;
     background-color: white;
     border: none;
+    width: max(120px, 17vw);
   }
 
   input::placeholder {
@@ -52,9 +53,13 @@ export const Infos = styled.main`
   }
 
   @media (max-width: 765px) {
+    padding-top: 80px;
+    padding-bottom: 20px;
     position: relative;
+    overflow: auto;
     height: 100vh;
     width: 100vw;
     background-size: cover;
+    z-index: 0;
   }
 `;
