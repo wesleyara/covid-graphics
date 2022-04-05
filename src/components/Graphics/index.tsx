@@ -3,7 +3,7 @@ import Highcharts from "highcharts";
 //import { forecastCovid } from "covid-forecast";
 import HighchartsReact from "highcharts-react-official";
 import { useEffect, useState } from "react";
-import { Container, GraphicsContainer } from "./style";
+import { GraphicsContainer, Infos } from "./style";
 
 export function Graphics() {
   const [n, setN] = useState(0);
@@ -68,8 +68,8 @@ export function Graphics() {
 
   return (
     <>
-      <Container className="inputContainer">
-        <h3>Teste manualmente</h3>
+      <Infos>
+        <h3>Testar manualmente</h3>
         <input
           type="number"
           placeholder="População"
@@ -103,7 +103,7 @@ export function Graphics() {
             <HighchartsReact highcharts={Highcharts} options={options} />
           </GraphicsContainer>
         )}
-      </Container>
+      </Infos>
     </>
   );
 }
