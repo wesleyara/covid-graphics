@@ -25,5 +25,58 @@ export const Container = styled.header`
         color: white;
       }
     }
+
+    li.search {
+      &:hover {
+        background-color: ${(props) => props.theme.colors.headerBackground};
+        color: black;
+      }
+    }
+  }
+
+  .btnMenu {
+    display: none;
+  }
+
+  @media (max-width: 765px) {
+    .btnMenu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      font-size: 30px;
+    }
+
+    ul {
+      display: block;
+      position: absolute;
+      width: 100%;
+      top: 80px;
+      right: 0px;
+      height: 0px;
+      z-index: 999;
+      visibility: hidden;
+      overflow: hidden;
+      background-color: ${(props) => props.theme.colors.headerBackground};
+
+      li {
+        padding: 15px 2rem;
+        transition: 0ms;
+      }
+    }
+
+    nav.active ul {
+      height: calc(100vh - 50px);
+      visibility: visible;
+      overflow: auto;
+    }
+
+    nav.active button {
+      color: black;
+    }
   }
 `;

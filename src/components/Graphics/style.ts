@@ -25,6 +25,7 @@ export const Infos = styled.main`
   input {
     padding: 15px;
     margin-left: 5px;
+    margin-top: 5px;
     background-color: white;
     border: none;
   }
@@ -48,5 +49,12 @@ export const Infos = styled.main`
     cursor: pointer;
     background-color: white;
     border: none;
+  }
+
+  @media (max-width: 765px) {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
   }
 `;

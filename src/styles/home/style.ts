@@ -7,7 +7,23 @@ export const Container = styled.div`
   header {
     flex: 1;
     max-width: 300px;
-    min-width: 251px;
+  }
+
+  @media (max-width: 765px) {
+    header {
+      flex: none;
+      background-color: transparent;
+      position: absolute;
+      z-index: 1;
+    }
+
+    header.active {
+      display: block;
+      position: relative;
+      background-color: ${(props) => props.theme.colors.headerBackground};
+      width: 100vw;
+      max-width: 100vw;
+    }
   }
 `;
 
@@ -16,6 +32,7 @@ export const Infos = styled.main`
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  height: 100vh;
   flex: 5;
   text-align: center;
   padding-top: 30px;
@@ -29,8 +46,10 @@ export const Infos = styled.main`
   input {
     padding: 15px;
     margin-left: 5px;
+    margin-top: 5px;
     background-color: white;
     border: none;
+    width: max(120px, 17vw);
   }
 
   input::placeholder {
@@ -52,5 +71,16 @@ export const Infos = styled.main`
     cursor: pointer;
     background-color: white;
     border: none;
+  }
+
+  @media (max-width: 765px) {
+    padding-top: 80px;
+    padding-bottom: 20px;
+    position: relative;
+    overflow: auto;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    z-index: 0;
   }
 `;

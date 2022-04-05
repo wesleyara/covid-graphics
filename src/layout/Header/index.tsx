@@ -3,6 +3,9 @@ import { Container } from "./style";
 import { useRouter } from "next/router";
 import { useStates } from "../../hooks/useStates";
 
+import { GiHamburgerMenu } from "react-icons/gi";
+import { CgMenuMotion } from "react-icons/cg";
+
 interface DataTypes {
   id: string;
   name: string;
@@ -28,26 +31,46 @@ export function Header() {
     fetchData();
   }, []);
 
-  return (
-    <Container>
-      <input type="text" placeholder="Pesquise um estado" />
+  const [active, setActive] = useState(false);
 
-      <ul>
-        <li onClick={() => router.push("/")}>Testar manualmente</li>
-        {data.map((item) => {
-          return (
-            <li
-              onClick={() => {
-                setStates(item.name);
-                router.push(`/states/${item.uf}`);
-              }}
-              key={item.id}
-            >
-              {item.name}
-            </li>
-          );
-        })}
-      </ul>
+  function handleActive() {
+    setActive(!active);
+  }
+
+  return (
+    <Container className={active ? "active" : ""}>
+      <nav className={active ? "active" : ""}>
+        <button className="btnMenu" onClick={handleActive}>
+          {!active ? <GiHamburgerMenu /> : <CgMenuMotion />}
+        </button>
+        <ul>
+          <li className="search">
+            <input type="text" placeholder="Pesquise um estado" />
+          </li>
+          <li
+            onClick={() => {
+              setActive(!active);
+              router.push("/");
+            }}
+          >
+            Testar manualmente
+          </li>
+          {data.map((item) => {
+            return (
+              <li
+                onClick={() => {
+                  setStates(item.name);
+                  setActive(!active);
+                  router.push(`/states/${item.uf}`);
+                }}
+                key={item.id}
+              >
+                {item.name}
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </Container>
   );
 }

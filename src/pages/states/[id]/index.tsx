@@ -1,7 +1,7 @@
 import { Header } from "../../../layout/Header";
 import { Container, Infos } from "../../../styles/home/style";
 
-import { forecastCovid } from "covid-forecast";
+import forecastCovid from "covid-forecast";
 import Highcharts from "highcharts";
 //import { forecastCovid } from "covid-forecast";
 import HighchartsReact from "highcharts-react-official";
