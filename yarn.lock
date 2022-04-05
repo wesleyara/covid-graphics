@@ -638,7 +638,7 @@ core-js-pure@^3.20.2:
 
 "covid-forecast@https://github.com/wesleyara/covid-forecast":
   version "1.0.0"
-  resolved "https://github.com/wesleyara/covid-forecast#cdf0162d19588eee584d7cb47c08ff4e6e323966"
+  resolved "https://github.com/wesleyara/covid-forecast#20096134f4f92a4e64a377dadb7cabf7f8132065"
 
 cross-spawn@^7.0.2:
   version "7.0.3"
