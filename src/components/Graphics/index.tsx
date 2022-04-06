@@ -83,6 +83,7 @@ export function Graphics() {
             onChange={(e) => {
               setN(Number(e.target.value));
               setRend(false);
+              setArray([]);
             }}
           />
           <input
@@ -92,6 +93,7 @@ export function Graphics() {
             onChange={(e) => {
               setD(Number(e.target.value));
               setRend(false);
+              setArray([]);
             }}
           />
           <input
@@ -101,6 +103,7 @@ export function Graphics() {
             onChange={(e) => {
               setX0(Number(e.target.value));
               setRend(false);
+              setArray([]);
             }}
           />
           <button type="submit">Testar</button>

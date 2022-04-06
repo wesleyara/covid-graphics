@@ -130,6 +130,7 @@ export default function States() {
               onChange={(e) => {
                 setD(Number(e.target.value));
                 setRend(false);
+                setArray([]);
               }}
             />
             <input
@@ -139,6 +140,7 @@ export default function States() {
               onChange={(e) => {
                 setX0(Number(e.target.value));
                 setRend(false);
+                setArray([]);
               }}
             />
             <button type="submit">Testar</button>
