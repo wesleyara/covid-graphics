@@ -1,6 +1,6 @@
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import forecastCovid from "covid-forecast";
+import { forecastCovid } from "covid-forecast";
 
 import { useEffect, useState } from "react";
 import { GraphicsContainer, Infos } from "./style";
