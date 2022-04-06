@@ -2,7 +2,7 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { forecastCovid } from "covid-forecast";
 
-import { useEffect, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { GraphicsContainer, Infos } from "./style";
 
 export function Graphics() {
@@ -22,9 +22,16 @@ export function Graphics() {
     }
   }, [d]);
 
-  function handleSend() {
-    setRend(true);
-    setArray(forecastCovid(d, n, x0));
+  function handleSend(e: FormEvent) {
+    e.preventDefault();
+
+    if (n && d && x0) {
+      setRend(true);
+      setArray(forecastCovid(d, n, x0));
+      return;
+    }
+
+    return;
   }
 
   const options = {
@@ -69,33 +76,35 @@ export function Graphics() {
     <>
       <Infos>
         <h3>Testar manualmente</h3>
-        <input
-          type="number"
-          placeholder="População"
-          onChange={(e) => {
-            setN(Number(e.target.value));
-            setRend(false);
-          }}
-        />
-        <input
-          type="number"
-          placeholder="Dias"
-          onChange={(e) => {
-            setD(Number(e.target.value));
-            setRend(false);
-          }}
-        />
-        <input
-          type="number"
-          placeholder="Casos iniciais"
-          onChange={(e) => {
-            setX0(Number(e.target.value));
-            setRend(false);
-          }}
-        />
-        <button type="button" onClick={handleSend}>
-          Testar
-        </button>
+        <form onSubmit={handleSend}>
+          <input
+            type="number"
+            placeholder="População"
+            onChange={(e) => {
+              setN(Number(e.target.value));
+              setRend(false);
+            }}
+          />
+          <input
+            type="number"
+            placeholder="Dias"
+            max={365}
+            onChange={(e) => {
+              setD(Number(e.target.value));
+              setRend(false);
+            }}
+          />
+          <input
+            type="number"
+            placeholder="Casos iniciais"
+            max={n}
+            onChange={(e) => {
+              setX0(Number(e.target.value));
+              setRend(false);
+            }}
+          />
+          <button type="submit">Testar</button>
+        </form>
 
         {rend === true && (
           <GraphicsContainer>

@@ -4,7 +4,7 @@ import { Container, Infos } from "../../../styles/home/style";
 import { forecastCovid } from "covid-forecast";
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
-import { useEffect, useState } from "react";
+import { useEffect, useState, FormEvent } from "react";
 import { GraphicsContainer } from "../../../components/Graphics/style";
 import { useRouter } from "next/router";
 import { useStates } from "../../../hooks/useStates";
@@ -62,9 +62,16 @@ export default function States() {
     }
   }, [d]);
 
-  function handleSend() {
-    setRend(true);
-    setArray(forecastCovid(d, population, x0));
+  function handleSend(e: FormEvent) {
+    e.preventDefault();
+
+    if (n && d && x0) {
+      setRend(true);
+      setArray(forecastCovid(d, population, x0));
+      return;
+    }
+
+    return;
   }
 
   const options = {
@@ -110,30 +117,32 @@ export default function States() {
         <Header />
         <Infos>
           <h3>{states}</h3>
-          <input
-            type="text"
-            value={population.toLocaleString().replace(",", ".")}
-            disabled
-          />
-          <input
-            type="number"
-            placeholder="Dias"
-            onChange={(e) => {
-              setD(Number(e.target.value));
-              setRend(false);
-            }}
-          />
-          <input
-            type="number"
-            placeholder="Casos iniciais"
-            onChange={(e) => {
-              setX0(Number(e.target.value));
-              setRend(false);
-            }}
-          />
-          <button type="button" onClick={handleSend}>
-            Testar
-          </button>
+          <form onSubmit={handleSend}>
+            <input
+              type="text"
+              value={population.toLocaleString().replace(",", ".")}
+              disabled
+            />
+            <input
+              type="number"
+              placeholder="Dias"
+              max={365}
+              onChange={(e) => {
+                setD(Number(e.target.value));
+                setRend(false);
+              }}
+            />
+            <input
+              type="number"
+              placeholder="Casos iniciais"
+              max={population}
+              onChange={(e) => {
+                setX0(Number(e.target.value));
+                setRend(false);
+              }}
+            />
+            <button type="submit">Testar</button>
+          </form>
           {rend === true && (
             <GraphicsContainer>
               <HighchartsReact highcharts={Highcharts} options={options} />
