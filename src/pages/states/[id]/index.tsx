@@ -52,18 +52,14 @@ export default function States() {
     }
   }, [n]);
 
-  useEffect(() => {
-    if (d) {
-      const arr = [];
-      for (let i = 0; i < d; i++) {
-        arr.push(i + 1);
-        setDays(arr);
-      }
-    }
-  }, [d]);
-
   function handleSend(e: FormEvent) {
     e.preventDefault();
+
+    const arr = [];
+    for (let i = 0; i < d; i++) {
+      arr.push(i + 1);
+      setDays(arr);
+    }
 
     if (n && d && x0) {
       setRend(true);

@@ -2,7 +2,7 @@ import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 import { forecastCovid } from "covid-forecast";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { GraphicsContainer, Infos } from "./style";
 
 export function Graphics() {
@@ -14,16 +14,14 @@ export function Graphics() {
 
   const [rend, setRend] = useState(false);
 
-  useEffect(() => {
+  function handleSend(e: FormEvent) {
+    e.preventDefault();
+
     const arr = [];
     for (let i = 0; i < d; i++) {
       arr.push(i + 1);
       setDays(arr);
     }
-  }, [d]);
-
-  function handleSend(e: FormEvent) {
-    e.preventDefault();
 
     if (n && d && x0) {
       setRend(true);
