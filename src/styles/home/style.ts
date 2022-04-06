@@ -67,6 +67,7 @@ export const Infos = styled.main`
 
   button {
     margin-left: 5px;
+    margin-top: 5px;
     padding: 15px;
     cursor: pointer;
     background-color: white;

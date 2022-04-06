@@ -3,8 +3,14 @@ import styled from "styled-components";
 export const GraphicsContainer = styled.div`
   width: 80%;
   margin: auto;
+  overflow: hidden;
   margin-top: 50px;
   max-width: 1100px;
+  min-width: 350px;
+
+  @media (max-width: 765px) {
+    width: 90%;
+  }
 `;
 
 export const Infos = styled.main`
@@ -46,6 +52,7 @@ export const Infos = styled.main`
 
   button {
     margin-left: 5px;
+    margin-top: 5px;
     padding: 15px;
     cursor: pointer;
     background-color: white;
